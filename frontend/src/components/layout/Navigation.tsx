@@ -11,7 +11,7 @@ function Navigation() {
   const navLinks = [
     { name: 'Home', path: '/' },
     { name: 'Elections', path: '/elections' },
-    { name: 'FAQ', path: '/faq' },
+    { name: 'Candidates', path: '/faq' },
   ];
 
   // Dropdown menu items

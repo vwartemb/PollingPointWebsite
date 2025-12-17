@@ -1,5 +1,3 @@
-
-
 function HowItWorksSection() {
   const steps = [
     { number: "1", title: "Search your upcoming elections", description: "Enter your address to see what's on your ballot" },
@@ -8,29 +6,51 @@ function HowItWorksSection() {
   ];
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-20 bg-gray-50"> 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
           Three simple steps
         </h2>
         <p className="text-gray-600 text-center mb-12 max-w-2xl mx-auto">
-          From search to vote in minutes
+          From research to participation takes just minutes.
         </p>
         
-        <div className="space-y-12">
-          {steps.map((step, index) => (
-            <div key={index} className="flex flex-col md:flex-row items-center gap-8">
-              <div className="flex-shrink-0 w-full md:w-1/3">
-                <div className="bg-gray-100 h-64 rounded-xl flex items-center justify-center">
-                  <div className="text-6xl font-bold text-blue-600">{step.number}</div>
-                </div>
-              </div>
-              <div className="flex-1">
-                <h3 className="text-2xl font-bold mb-3">{step.title}</h3>
-                <p className="text-gray-600 text-lg">{step.description}</p>
-              </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+          {/* First card that takes up full left side */}
+          <div className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition">
+            
+            {/* Gray area with background image*/}
+            <div className="relative bg-gray-200 h-96 flex items-center justify-center">
+              
+              {/* Background image*/}
+              <img
+                src="/images/1simplestep.jpeg"
+                alt="Step 1 Background"
+                className="absolute inset-0 w-full h-full object-cover object-center"
+              />
             </div>
-          ))}
+            
+            <div className="p-6">
+              {/* Number */}
+              <div className="relative z-10 text-2xl text-black drop-shadow-lg">
+                {steps[0].number}
+              </div>
+              <h3 className="text-2xl font-bold mb-3">{steps[0].title}</h3>
+              <p className="text-gray-600 text-lg">{steps[0].description}</p>
+            </div>
+          </div>
+
+          {/* Right side - two cards stacked */}
+          <div className="flex flex-col gap-6">
+            {steps.slice(1).map((step, index) => (
+              <div key={index} className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition p-6 flex flex-col text-align left h-80 justify-center">
+                   <div className="text-2xl text-black">{step.number}</div>
+                  <h3 className="text-2xl font-bold mb-3">{step.title}</h3>
+                  <p className="text-gray-600 text-lg">{step.description}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
