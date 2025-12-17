@@ -3,13 +3,25 @@ import { useNavigate } from 'react-router-dom';
 function HeroSection() {
     const navigate = useNavigate();
   return (
-    <section className="bg-gradient-to-br from-blue-600 to-indigo-700 text-white py-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <section className="relative text-white py-20 overflow-hidden">
+
+      {/* Background image*/}
+      <img
+        src="/images/stock_image.jpeg"
+        alt="Hero Background"
+        className="absolute inset-0 w-full h-full object-cover object-[center_25%]"
+      />
+
+      {/* Dark overlay for better text visibility */}
+      <div className="absolute inset-0 bg-black/50"/>
+      
+      {/* Content */}
+      <div className="relative z-10 text-center text-white max-w-3xl px-6 mx-auto">
         <h1 className="text-4xl md:text-6xl font-bold mb-6">
           Know your candidates,<br />own your vote
         </h1>
         <p className="text-xl md:text-2xl mb-8 text-blue-100 max-w-3xl mx-auto">
-          Access nonpartisan information about elections, candidates, and polling locations in seconds
+          Democracy works when citizens are informed. We make it simple to research elections, compare candidates, and participate in the decisions that shape your community.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <button 
