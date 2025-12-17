@@ -18,7 +18,8 @@ function HomePage() {
         subtitle="Join thousands of voters using PollingPoint to access reliable election information."
         buttonText="Find My Ballot"
         buttonLink="/dashboard"
-        //onClick={() => window.location.href = '/home'}  
+        imageUrl="/public/images/ctabackground.jpeg"
+        //onClick={() => window.location.href = '/home'} 
       />
       
       <CTASection
@@ -27,6 +28,7 @@ function HomePage() {
         buttonText="Sign up for alerts"
         buttonLink="/dashboard"
         variant="dark"
+        showEmailInput={true}
         //onClick={() => window.location.href = '/home'}  
       />  
       <Questions/>

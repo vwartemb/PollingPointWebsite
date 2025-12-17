@@ -1,10 +1,23 @@
-import { MapPin } from "lucide-react";
+
 
 function EmpowerSection() {
+
   const empowerCards = [
-    { title: "See through the noise", description: "Cut through campaign ads and get straight facts" },
-    { title: "Vote with confidence", description: "Make informed decisions based on real data" },
-    { title: "Join thousands of engaged citizens", description: "Be part of a community that values informed voting" }
+    { 
+      title: "See through the noise", 
+      description: "Cut through campaign ads and get straight facts",
+      image: "/images/empower1.jpeg"
+    },
+    { 
+      title: "Vote with confidence",
+      description: "Make informed decisions based on real data",
+      image: "/images/empower2.jpeg"
+   },
+    { 
+      title: "Join thousands of engaged citizens", 
+      description: "Be part of a community that values informed voting",
+      image: "/images/empower3.jpeg"
+    }
   ];
 
   return (
@@ -20,9 +33,13 @@ function EmpowerSection() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {empowerCards.map((card, index) => (
             <div key={index} className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition">
-              <div className="h-48 bg-gradient-to-br from-blue-400 to-indigo-500 flex items-center justify-center">
-                <MapPin size={64} className="text-white opacity-50" />
+
+              {/* Background Image Section */}
+              <div className="h-48 bg-cover bg-center relative" style={{ backgroundImage: `url('${card.image}')` }}>
+                {/* Dark overlay for better text readability (optional) */}
+                <div className="absolute inset-0 bg-black bg-opacity-30"></div>
               </div>
+      
               <div className="p-6">
                 <h3 className="text-xl font-bold mb-2">{card.title}</h3>
                 <p className="text-gray-600">{card.description}</p>
