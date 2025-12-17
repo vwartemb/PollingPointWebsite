@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react';
 import Footer from './Footer.tsx';
+import Navigation from './Navigation.tsx';
 
 
 interface LayoutProps {
@@ -9,7 +10,7 @@ interface LayoutProps {
 function Layout({ children }: LayoutProps) {
     return (
         <div className="min-h-screen bg-gray-50">
-            {/*<Navigation />*/}
+            <Navigation />
             <main>{children}</main>
             <Footer />
         </div>

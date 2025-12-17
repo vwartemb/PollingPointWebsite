@@ -3,6 +3,7 @@ import FeaturesSection from "../components/home/FeaturesSection";
 import EmpowerSection from "../components/home/EmpowerSection";
 import HowItWorksSection from "../components/home/HowItWorksSection";
 import CTASection from "../components/home/CTASection";
+import Questions from "../components/home/Questions";
 
 function HomePage() {  
   return (
@@ -28,6 +29,7 @@ function HomePage() {
         variant="dark"
         //onClick={() => window.location.href = '/home'}  
       />  
+      <Questions/>
     </>
   );
 }
