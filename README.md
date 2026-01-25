@@ -2,8 +2,6 @@
 
 > Empowering citizens with easy access to election information, candidate positions, and civic participation resources.
 
-![PollingPoint Banner](frontend/public/images/stock_image.jpg)
-
 **Live Demo:** [Coming Soon]  
 **Portfolio Project** | Built with React, TypeScript, and Node.js
 
