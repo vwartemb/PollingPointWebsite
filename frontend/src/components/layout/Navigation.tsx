@@ -7,11 +7,11 @@ function Navigation() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const location = useLocation();
   
-  // Regular navigation links
+  // Regular navigation links (maps to routes)
   const navLinks = [
     { name: 'Home', path: '/' },
     { name: 'Elections', path: '/elections' },
-    { name: 'Candidates', path: '/faq' },
+    { name: 'Candidates', path: '/candidates' },
   ];
 
   // Dropdown menu items
@@ -22,11 +22,16 @@ function Navigation() {
     { name: 'Resources', path: '/resources' },
   ];
 
+  const CTALinks = [
+    { name: 'Register To Vote', path: '/dashboard' },
+    { name: 'Find My Ballot', path: '/find-ballot' }
+  ]
+
   return (
     <nav className="bg-white shadow-sm sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          
+
           {/* Logo */}
           <Link to="/" className="flex items-center hover:opacity-80 transition">
             <MapPin className="text-blue-600 mr-2" size={28} />
@@ -91,16 +96,21 @@ function Navigation() {
               )}
             </div>
           </div>
-
-          {/* CTA Button */}
-          <div className="hidden md:block">
-            <Link
-              to="/dashboard"
-              className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition"
-            >
-              Find My Ballot
-            </Link>
+          
+          {/* CTA Buttons */}
+          <div className="hidden md:flex items-center space-x-4">
+            {CTALinks.map(link => (
+              <Link
+                key={link.path}
+                to={link.path}
+                className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition"
+              >
+                {link.name}
+              </Link>
+            ))}
           </div>
+
+          
 
           {/* Mobile Menu Button */}
           <button
