@@ -1,0 +1,50 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql" 
+  url      = env("DATABASE_URL")
+}
+
+// ELECTION TABLE - Stores different elections 
+model Election {
+  id         Int         @id @default(autoincrement())        // Primary Key 
+  name       String
+  date       DateTime
+  isActive   Boolean     @default(false)                      // Only one election should be active at a time 
+  createdAt  DateTime    @default(now())
+  candidates Candidate[]                                      // an election can have many candidates so by the using command election.candidates youbcan get all candidates in the array
+}
+
+// WARD TABLE - Chicago specifically has 50 wards 
+model Ward {
+  id         Int         @id @default(autoincrement())
+  number     Int         @unique                      // This should only go up to 50
+  name       String                                   // every ward has a neighborhood name 
+  candidates Candidate[]
+  users      User[]                                   // A ward can have many users(residents)
+}
+
+// CANDIDATE TABLE - Stores people running for alderman 
+model Candidate {
+  id         Int                 @id @default(autoincrement())
+  name       String
+  bio        String?              // I made this an optional because every candidate might not have a bio
+  imageUrl   String
+  website    String
+  wardId     Int                 // Foreign Key that stores which ward this candidate is running in
+  ward       Ward                @relation(fields: [wardId], references: [id])
+  electionId Int
+  election   Election            @relation(fields: [electionId], references: [id])
+  dataSource String              @default("MANUAL")
+  externalId String?             @unique
+  createdAt  DateTime            @default(now())
+  updatedAt  DateT
