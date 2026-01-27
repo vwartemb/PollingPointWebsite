@@ -4,7 +4,7 @@ import EmpowerSection from "../components/home/EmpowerSection";
 import HowItWorksSection from "../components/home/HowItWorksSection";
 import CTASection from "../components/home/CTASection";
 import Questions from "../components/home/Questions";
-import { CheckCircle, MapPin, Calendar, Search, User } from "lucide-react";
+import { MapPin, Search, User } from "lucide-react";
 
 function HomePage() {  
   return (

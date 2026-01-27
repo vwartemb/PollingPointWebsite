@@ -1,5 +1,8 @@
 import { Search, Users, Filter, ChevronRight, MapPin, X } from 'lucide-react';
 import { useState } from 'react';
+import SearchBar from '../components/candidates/SearchBar';
+import HeroSection from '../components/home/HeroSection';
+import CTASection from '../components/home/CTASection';
 
 function CandidatesPage() {
   const [showFilters, setShowFilters] = useState(false);
@@ -8,64 +11,16 @@ function CandidatesPage() {
     <div className="min-h-screen bg-gray-50">
       
 
-      {/* Hero Section */}
-      <section className="bg-gradient-to-r from-blue-600 to-blue-700 text-white py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">Compare Candidates</h1>
-          <p className="text-xl text-blue-100 max-w-2xl">
-            Review positions, voting records, and backgrounds side by side
-          </p>
-        </div>
-      </section>
+      <HeroSection
+        title="Compare Candidates"
+        subtitle="Review positions, voting records, and backgrounds side by side"
+        showButtons={false}
+        showSearchBar={false}
+        showLocationDisplay={false}
+        backgroundImageUrl="/images/empower3.jpeg"
+      />
 
-      {/* Filter and Search Bar */}
-      <section className="bg-white border-b py-6 sticky top-16 z-40">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-4">
-            <div className="flex-1 flex items-center bg-gray-100 rounded-lg px-4 py-3">
-              <Search className="text-gray-400 mr-3" size={20} />
-              <input
-                type="text"
-                placeholder="Search candidates by name or office..."
-                className="flex-1 bg-transparent focus:outline-none text-gray-900"
-              />
-            </div>
-            <button 
-              onClick={() => setShowFilters(!showFilters)}
-              className="flex items-center gap-2 px-6 py-3 border-2 border-gray-300 rounded-lg hover:bg-gray-50 font-semibold"
-            >
-              <Filter size={20} />
-              Filters
-              {showFilters && <X size={16} />}
-            </button>
-            <button className="px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700">
-              Compare Selected
-            </button>
-          </div>
-
-          {/* Filter Pills (when active) */}
-          {showFilters && (
-            <div className="mt-4 flex flex-wrap gap-3">
-              <button className="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-semibold hover:bg-blue-200">
-                All Offices
-              </button>
-              <button className="px-4 py-2 bg-gray-200 text-gray-700 rounded-full text-sm hover:bg-gray-300">
-                U.S. Senate
-              </button>
-              <button className="px-4 py-2 bg-gray-200 text-gray-700 rounded-full text-sm hover:bg-gray-300">
-                U.S. House
-              </button>
-              <button className="px-4 py-2 bg-gray-200 text-gray-700 rounded-full text-sm hover:bg-gray-300">
-                State Legislature
-              </button>
-              <button className="px-4 py-2 bg-gray-200 text-gray-700 rounded-full text-sm hover:bg-gray-300">
-                Local Offices
-              </button>
-            </div>
-          )}
-        </div>
-      </section>
-
+      <SearchBar />
       {/* Candidates by Office */}
       <section className="py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -286,19 +241,14 @@ function CandidatesPage() {
 
         </div>
       </section>
-
-      {/* CTA Section */}
-      <section className="py-16 bg-gray-900 text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Make an Informed Decision</h2>
-          <p className="text-xl mb-8 text-gray-300">
-            Compare candidates side by side to see who aligns with your values
-          </p>
-          <button className="bg-white text-gray-900 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 text-lg">
-            Start Comparing
-          </button>
-        </div>
-      </section>
+      <CTASection 
+        title="Make an Informed Decision"
+        subtitle="Compare candidates side by side to see who aligns with your values"
+        buttonText="Start Comparing"
+        buttonLink="/dashboard"
+        variant='dark'
+        //onClick={() => window.location.href = '/home'} 
+      />
     </div>
   );
 }
