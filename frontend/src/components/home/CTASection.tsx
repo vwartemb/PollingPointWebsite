@@ -4,14 +4,13 @@ interface CTASectionProps {
   title: string;
   subtitle: string;
   buttonText: string;
-  buttonLink: string;
   variant?: "light" | "dark";
   onClick?: () => void;
   imageUrl?: string;
   showEmailInput?: boolean;
 }
 
-function CTASection({title, subtitle, buttonText, buttonLink, variant = "light", onClick, imageUrl, showEmailInput}: CTASectionProps) {
+function CTASection({title, subtitle, buttonText, variant = "light", onClick, imageUrl, showEmailInput}: CTASectionProps) {
   const isDark = variant === "dark";
   
   return (

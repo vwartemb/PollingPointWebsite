@@ -2,7 +2,7 @@ import { MapPin } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 function Footer() {
-  //const navigate = useNavigate(); // ill uncomment when navigation is needed
+  const navigate = useNavigate(); 
 
   return (
     <footer className="bg-gray-900 text-white py-12">

@@ -1,11 +1,9 @@
-import { Search, Users, Filter, ChevronRight, MapPin, X } from 'lucide-react';
-import { useState } from 'react';
+import { Users, ChevronRight } from 'lucide-react';
 import SearchBar from '../components/candidates/SearchBar';
 import HeroSection from '../components/home/HeroSection';
 import CTASection from '../components/home/CTASection';
 
 function CandidatesPage() {
-  const [showFilters, setShowFilters] = useState(false);
 
   return (
     <div className="min-h-screen bg-gray-50">

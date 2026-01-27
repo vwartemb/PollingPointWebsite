@@ -1,4 +1,3 @@
-import { useNavigate } from 'react-router-dom';
 import { MapPin, Search } from 'lucide-react';
 
 interface HeroSectionProps {
@@ -12,6 +11,7 @@ interface HeroSectionProps {
   secondaryButtonText?: string;
   onPrimaryClick?: () => void;
   onSecondaryClick?: () => void;
+  
 }
 
 function HeroSection({
@@ -26,7 +26,6 @@ function HeroSection({
   onPrimaryClick,
   onSecondaryClick,
 }: HeroSectionProps) {
-    const navigate = useNavigate();
   return (
     
     <section className="relative text-white py-20 overflow-hidden">

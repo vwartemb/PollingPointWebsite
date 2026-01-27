@@ -237,9 +237,9 @@ npm start
 
 ```
 PollingPointWebsite/
-├── frontend/                   # React frontend application
+├── frontend/                   
 │   ├── public/
-│   │   └── images/            # Static images
+│   │   └── images/            
 │   │       ├── hero-background.jpg
 │   │       ├── empower-1.jpg
 │   │       ├── empower-2.jpg
@@ -257,31 +257,30 @@ PollingPointWebsite/
 │   │   │   ├── DashboardPage.tsx
 │   │   │   ├── ElectionsPage.tsx
 │   │   │   └── FAQPage.tsx
-│   │   ├── services/         # API integration
-│   │   ├── hooks/            # Custom React hooks
-│   │   ├── types/            # TypeScript type definitions
-│   │   ├── utils/            # Helper functions
-│   │   ├── App.tsx           # Main app component
-│   │   └── main.tsx          # Entry point
-│   ├── .env                  # Environment variables (not committed)
-│   ├── .env.example          # Template for env variables
-│   ├── tailwind.config.js    # Tailwind configuration
-│   ├── vite.config.ts        # Vite configuration
+│   │   ├── services/         
+│   │   ├── hooks/            
+│   │   ├── types/            
+│   │   ├── utils/            
+│   │   ├── App.tsx           
+│   │   └── main.tsx          
+│   ├── .env                  
+│   ├── .env.example          
+│   ├── tailwind.config.js    
+│   ├── vite.config.ts        
 │   └── package.json
 │
-├── backend/                   # Node.js backend (coming soon)
+├── backend/                   
 │   ├── src/
 │   │   ├── routes/           # API routes
 │   │   ├── controllers/      # Route controllers
 │   │   ├── services/         # Business logic
 │   │   ├── models/           # Database models
-│   │   └── middleware/       # Express middleware
-│   ├── .env                  # Backend env variables
+│   │   └── middleware/       
+│   ├── .env                  
 │   └── package.json
 │
 ├── .gitignore
 ├── README.md
-└── Requirements Doc PollingPoint.docx
 ```
 
 ---
@@ -330,9 +329,9 @@ const response = await fetch(
 - [x] Navigation with dropdown menus
 - [x] Component structure
 - [x] Tailwind CSS integration
-- [ ] API integration (Google Civic, ProPublica)
-- [ ] Address search functionality
-- [ ] Basic dashboard
+- [x] API integration (Google Civic, ProPublica)
+- [x] Address search functionality
+- [x] Basic dashboard
 
 ### Phase 2: Core Features (Weeks 7-12)
 - [ ] Interactive polling location map
@@ -352,23 +351,6 @@ const response = await fetch(
 
 ---
 
-
-
-## 📸 Screenshots
-
-### Homepage
-![Homepage](screenshots/homepage.png)
-
-### Dashboard
-![Dashboard](screenshots/dashboard.png)
-
-### Candidate Comparison
-![Candidates](screenshots/candidates.png)
-
-*Screenshots coming soon*
-
----
-
 ## 🧪 Testing 
 
 ```bash
@@ -384,19 +366,6 @@ npm run test:coverage
 
 ---
 
-
-
-## 👤 Contact
-
-**Vanessa Wartemberg**
-
-- GitHub: [@vwartemb](https://github.com/vwartemb)
-- LinkedIn: [Your LinkedIn](https://linkedin.com/in/yourprofile)
-- Portfolio: [Your Portfolio](https://yourportfolio.com)
-- Email: your.email@example.com
-
----
-
 ## 🎓 Learning Outcomes
 
 This project demonstrates:
@@ -409,8 +378,4 @@ This project demonstrates:
 - ✅ API security and environment variables
 - ✅ Modern development tools (Vite, ESLint)
 
----
 
-**Built with ❤️ for civic engagement and democracy**
-
-*PollingPoint - Know your candidates, own your vote*
