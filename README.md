@@ -168,11 +168,6 @@ VITE_PROPUBLICA_API_KEY=your_propublica_api_key_here
    - Create credentials (API Key)
    - Copy the key to your `.env` file
 
-2. **ProPublica Congress API:**
-   - Visit [ProPublica API](https://www.propublica.org/datastore/api/propublica-congress-api)
-   - Request an API key (free)
-   - Copy the key to your `.env` file
-
 #### Backend Setup 
 
 Create a `.env` file in the `backend` directory:
@@ -245,13 +240,13 @@ PollingPointWebsite/
 │   │       ├── empower-2.jpg
 │   │       └── empower-3.jpg
 │   ├── src/
-│   │   ├── components/        # Reusable React components
-│   │   │   ├── layout/       # Navigation, Footer, Layout
-│   │   │   ├── home/         # Homepage sections
-│   │   │   ├── elections/    # Election-related components
-│   │   │   ├── candidates/   # Candidate components
-│   │   │   └── common/       # Shared UI components
-│   │   ├── pages/            # Page components
+│   │   ├── components/        
+│   │   │   ├── layout/       
+│   │   │   ├── home/         
+│   │   │   ├── elections/    
+│   │   │   ├── candidates/  
+│   │   │   └── common/       
+│   │   ├── pages/           
 │   │   │   ├── HomePage.tsx
 │   │   │   ├── AboutPage.tsx
 │   │   │   ├── DashboardPage.tsx
@@ -271,10 +266,10 @@ PollingPointWebsite/
 │
 ├── backend/                   
 │   ├── src/
-│   │   ├── routes/           # API routes
-│   │   ├── controllers/      # Route controllers
-│   │   ├── services/         # Business logic
-│   │   ├── models/           # Database models
+│   │   ├── routes/           
+│   │   ├── controllers/     
+│   │   ├── services/        
+│   │   ├── models/           
 │   │   └── middleware/       
 │   ├── .env                  
 │   └── package.json
@@ -297,25 +292,6 @@ PollingPointWebsite/
 ```javascript
 const response = await fetch(
   `https://www.googleapis.com/civicinfo/v2/voterinfo?key=${API_KEY}&address=${address}`
-);
-```
-
-### ProPublica Congress API
-
-**Endpoints Used:**
-- `GET /members` - Congressional member information
-- `GET /members/{id}/votes` - Voting records
-- `GET /bills` - Bill information
-
-**Example Request:**
-```javascript
-const response = await fetch(
-  'https://api.propublica.org/congress/v1/members',
-  {
-    headers: {
-      'X-API-Key': PROPUBLICA_API_KEY
-    }
-  }
 );
 ```
 
