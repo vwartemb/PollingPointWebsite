@@ -99,10 +99,12 @@ export async function getVoterInfo(address: string, electionId?: string): Promis
         }
 
         // Make a fetch request to the backend API
-        const response = await fetch(`${API_BASE_URL}api/civic/voter-info?${params}`);
+        const response = await fetch(`${API_BASE_URL}/api/civic/voter-info?${params}`);
 
         if (!response.ok) {
-            throw new Error(`Http error! status: ${response.status}`);
+            const errorBody = await response.json().catch(() => null);
+            const message = errorBody?.error?.message || `HTTP error! status: ${response.status}`;
+            throw new Error(message);
         }
 
         return await response.json();
@@ -118,7 +120,7 @@ export async function getVoterInfo(address: string, electionId?: string): Promis
  */
 export async function getElections(): Promise<ElectionsResponse> {
     try {
-        const response = await fetch(`${API_BASE_URL}api/civic/elections`);
+        const response = await fetch(`${API_BASE_URL}/api/civic/elections`);
 
         if (!response.ok) {
             throw new Error(`Http error! status: ${response.status}`);
@@ -136,7 +138,7 @@ export async function geocodeAddress(address: string): Promise<GeocodedAddress> 
     try {
         const params = new URLSearchParams({ address });
         
-        const response = await fetch(`${API_BASE_URL}api/civic/geocode?${params}`);
+        const response = await fetch(`${API_BASE_URL}/api/civic/geocode?${params}`);
         if (!response.ok) {
             throw new Error(`Http error! status: ${response.status}`);
         }

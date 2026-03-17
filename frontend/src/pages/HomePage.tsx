@@ -76,7 +76,7 @@ function HomePage() {
         subtitle="Join thousands of voters using PollingPoint to access reliable election information."
         buttonText="Find My Ballot"
         onClick={() => navigate('/elections')}
-        imageUrl="/public/images/ctabackground.jpeg"
+        imageUrl="/images/ctabackground.jpeg"
       />
       
       <CTASection

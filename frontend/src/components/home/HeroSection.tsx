@@ -11,11 +11,18 @@ interface HeroSectionProps {
   secondaryButtonText?: string;
   onPrimaryClick?: () => void;
   onSecondaryClick?: () => void;
-  
+
+  // Search Bar
+  searchValue?: string;
+  onSearchChange?: (value: string) => void;
+  onSearch?: () => void;
+  onSearchKeyPress?: (e: React.KeyboardEvent) => void;
+  searchedAddress?: string;
+  loading?: boolean;
 }
 
 function HeroSection({
-  title, 
+  title,
   subtitle,
   showButtons = true,
   showSearchBar = false,
@@ -25,6 +32,14 @@ function HeroSection({
   secondaryButtonText = "Learn More",
   onPrimaryClick,
   onSecondaryClick,
+
+  // Search Bar
+  searchValue,
+  onSearchChange,
+  onSearch,
+  onSearchKeyPress,
+  searchedAddress,
+  loading,
 }: HeroSectionProps) {
   return (
     
@@ -73,28 +88,32 @@ function HeroSection({
             <Search className="text-gray-400 ml-4" size={24} />
             <input
               type="text"
-              placeholder="Enter your street address or ZIP code"
+              value={searchValue ?? ''}
+              onChange={e => onSearchChange?.(e.target.value)}
+              onKeyDown={onSearchKeyPress}
+              placeholder="Enter your full street address (e.g. 123 Main St, Chicago, IL)"
               className="flex-1 px-4 py-4 text-gray-900 text-lg focus:outline-none"
             />
-            <button className="bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-700">
-              Search
+            <button
+              onClick={onSearch}
+              disabled={loading}
+              className="bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-700 disabled:opacity-50"
+            >
+              {loading ? 'Searching...' : 'Search'}
             </button>
           </div>
         )}
 
         { /* Conditional Location Display */}
-        {showLocationDisplay && (
+        {showLocationDisplay && searchedAddress && (
           <div className="mt-6 flex items-center text-blue-100">
             <MapPin size={20} className="mr-2" />
             <span>
               Showing elections for:{" "}
-              <strong>123 Main St, Chicago, IL 60601</strong>
+              <strong>{searchedAddress}</strong>
             </span>
-            <button className="ml-4 underline hover:text-white">
-              Change address
-            </button>
           </div>
-          )}
+        )}
       </div>
     </section>
   );
